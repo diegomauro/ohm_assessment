@@ -1,0 +1,72 @@
+{% extends "base_map.html" %}
+
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="/css/webflow_base.css">
+
+<style>
+table {
+  margin-top: 10%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+  width: 80%;
+  margin-left: 10%;
+}
+
+table td {
+    border-left: 1px solid #ddd !important;
+    border-right: 1px solid #ddd;
+}
+
+table td:first-child {
+    border-left: none;
+}
+
+table td:last-child {
+    border-right: none;
+}
+
+th {
+    border-bottom: 1px solid lightgray;
+}
+
+th, td {
+  text-align: center;
+  padding: 1%;
+}
+
+tr:nth-child(even) {
+  background-color: lightgray;
+}
+
+.container{
+    text-align: center;
+    color: #808284;
+}
+</style>
+
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <table >
+        <thead>
+            <th>User Name</th>
+            <th>Tier</th>
+            <th>Point Balance</th>
+        </thead>
+        <tbody>
+            {% for user in userList %}
+            <tr>
+                <td>{{user[0]}}</td>
+                <td>{{user[1]}}</td>
+                <td>{{user[2]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
